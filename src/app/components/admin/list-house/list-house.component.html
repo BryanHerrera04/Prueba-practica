@@ -1,0 +1,30 @@
+<section class="row mt-5">
+    <div class="col">
+        <button class="btn btn-primary float-right mb-3" data-toggle="modal" 
+        data-target="#modalhouse">Nueva Casa</button>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let house of houses; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{house.Titulo}}</td>
+                    <td>{{house.Precio}}</td>
+                    <td>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalhouse"
+                        (click)="onPreUpdateHouse(house)">Actualizar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger"(click)="onDeleteHouse(house.id)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<app-modal></app-modal>
